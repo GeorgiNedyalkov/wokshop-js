@@ -1,4 +1,4 @@
-* [] Install dependencies 
+* [X] Install dependencies 
 * [] Create Model
  * [] Cube Model
   * id, name, description, imageURL, DifficultyLevel
