@@ -1,5 +1,5 @@
 * [X] Install dependencies 
-* [] Create Model
+* [X] Create Model
  * [] Cube Model
   * id, name, description, imageURL, DifficultyLevel
 * [] Store the cube in the database.json
