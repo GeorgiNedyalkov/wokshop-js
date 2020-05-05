@@ -7,7 +7,7 @@ class Cube {
 
     _write(newData, resolveData) {
         return new Promise((resolve, reject) => {
-            fs.writeFile(path.resolve('../config/data.json'), JSON.stringify(newData), (err) => {
+            fs.writeFile(path.resolve('config//database.json'), JSON.stringify(newData, null, 2), (err) => {
                 if (err) { reject(err); return; }
                 this.data = newData;
                 resolve(resolveData);
@@ -16,7 +16,7 @@ class Cube {
     }
 
     insert(newCube) {
-        const newIndex = this.data.lastIndex++;
+        const newIndex = ++this.data.lastIndex;
         newCube = { id: newIndex, ...newCube };
         const newData = {
             lastIndex: newIndex,
@@ -30,7 +30,7 @@ class Cube {
     update(cubeId, updates) {
         const entitityIndex = this.data.entities.findIndex(({ id }) => id === cubeId);
         const entity = this.data.entities[entitityIndex];
-        const updatedEntity = {...entitity, ...updates};
+        const updatedEntity = {...entity, ...updates};
         const newData = {
             lastIndex: this.data.lastIndex,
             entities: [
@@ -42,17 +42,23 @@ class Cube {
         return this._write(newData, updatedEntity);
     }
 
-    delete() {
+    delete(id) {
+        const deletedEntity = this.getOne(id);
 
+        const newData = {
+            lastIndex: this.data.lastIndex,
+            entities: this.data.entities.filter(({ id: i }) => i !== id)
+        };
+        return this._write(newData, deletedEntity);
     }
 
     getOne(id) {
-        Promise.resolve(this.data.entities.find(({ id: i }) => i === id));
+        return Promise.resolve(this.data.entities.find(({ id: i }) => i === id));
         
     }
 
     getAll() {
-        Promise.resolve(this.data.entities);
+        return Promise.resolve(this.data.entities);
     }
 }
 

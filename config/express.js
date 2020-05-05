@@ -3,8 +3,6 @@ const handlebars = require('express-handlebars');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const port = 4200;
-
 module.exports = (app) => {
     app.use(bodyParser.urlencoded( { extended: false } ));
     app.use(express.static(path.resolve(__basedir, 'static')));
