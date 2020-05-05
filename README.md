@@ -2,7 +2,7 @@
 * [X] Create Model
  * [X] Cube Model
   * [X]id, name, description, imageURL, DifficultyLevel
-* [] Store the cube in the database.json
+* [X] Store the cube in the database.json
 * [] Create routes
  * [] / = main page (visualize all cubes in database and a search field)
  * [] /about - render the about page
