@@ -46,12 +46,13 @@ class Cube {
 
     }
 
-    getOne() {
-
+    getOne(id) {
+        Promise.resolve(this.data.entities.find(({ id: i }) => i === id));
+        
     }
 
     getAll() {
-
+        Promise.resolve(this.data.entities);
     }
 }
 

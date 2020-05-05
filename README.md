@@ -1,7 +1,7 @@
 * [X] Install dependencies 
 * [X] Create Model
- * [] Cube Model
-  * id, name, description, imageURL, DifficultyLevel
+ * [X] Cube Model
+  * [X]id, name, description, imageURL, DifficultyLevel
 * [] Store the cube in the database.json
 * [] Create routes
  * [] / = main page (visualize all cubes in database and a search field)
